@@ -15,4 +15,9 @@
 
 Route::get('/', function () {
     return view('welcome');
+
+});
+
+Route::get('test', function () {
+    dd('Hello welcome to laravel!!');
 });
