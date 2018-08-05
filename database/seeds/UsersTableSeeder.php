@@ -12,8 +12,14 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
+            'created_at' => \Carbon\Carbon::now(),
             'username'=> 'root',
-            'email' => 'root@'
+            'email' => 'root@newsportal.com',
+            'password' => bcrypt('root'),
+            'full_name' => 'root user',
+            'contact_no' => '',
+            'address' => '',
+            'status' => 1
 
         ]);
     }

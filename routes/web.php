@@ -18,6 +18,4 @@ Route::get('/', function () {
 
 });
 
-Route::get('test', function () {
-    dd('Hello welcome to laravel!!');
-});
+Route::get('admin/dashboard', [ 'as'=> 'admin.dashboard','uses' => 'Admin\DashboardController@index']);

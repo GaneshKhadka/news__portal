@@ -16,6 +16,11 @@ class CreateSiteTable extends Migration
         Schema::create('siteprofile', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+
+            $table->string('domain',255)->nullable();
+            $table->string('company_name',100)->nullable();
+            $table->string('company_logo',255)->nullable();
+            $table->string('company_ceo',100)->nullable();
         });
     }
 
