@@ -43,7 +43,7 @@
             <b class="arrow"></b>
         </li>
 
-        <li class="">
+        <li {!! request()->is('admin/user')?'class="active open"':'' !!}>
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-desktop"></i>
                 <span class="menu-text">
