@@ -11,15 +11,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
-class DashboardController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard.index');
+        return view('admin.user.index');
       }
 
-    public function test()
-    {
-        return view('admin.dashboard.test');
-    }
 }
