@@ -22,3 +22,7 @@ Route::get('admin/dashboard', [ 'as'=> 'admin.dashboard','uses' => 'Admin\Dashbo
 Route::get('admin/test', [ 'as'=> 'admin.test','uses' => 'Admin\DashboardController@test']);
 Route::get('admin/user', [ 'as'=> 'admin.user','uses' => 'Admin\UserController@index']);
 Route::get('admin/user/add', [ 'as'=> 'admin.user.add','uses' => 'Admin\UserController@add']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
