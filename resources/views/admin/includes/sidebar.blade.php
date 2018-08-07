@@ -43,7 +43,7 @@
             <b class="arrow"></b>
         </li>
 
-        <li {!! request()->is('admin/user')?'class="active open"':'' !!}>
+        <li {!! request()->is('admin/user*')?'class="active open"':'' !!}>
             <a href="#" class="dropdown-toggle">
                 <i class="menu-icon fa fa-desktop"></i>
                 <span class="menu-text">
@@ -57,8 +57,8 @@
 
             <ul class="submenu">
 
-                <li class="">
-                    <a href="elements.html">
+                <li {!! request()->is('admin/user')?'class="active"':'' !!}>
+                    <a href="{{ route('admin.user') }}">
                         <i class="menu-icon fa fa-caret-right"></i>
                         User Lists
                     </a>
@@ -66,8 +66,8 @@
                     <b class="arrow"></b>
                 </li>
 
-                <li class="">
-                    <a href="buttons.html">
+                <li {!! request()->is('admin/user/add')?'class="active"':'' !!}>
+                    <a href="{{ route('admin.user.add') }}">
                         <i class="menu-icon fa fa-caret-right"></i>
                         Add User
                     </a>

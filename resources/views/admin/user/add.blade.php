@@ -12,7 +12,7 @@
                     </li>
 
                     <li>
-                        <a href="#">Add Form</a>
+                        <a href="#">Tables</a>
                     </li>
                     <li class="active">Simple &amp; Dynamic</li>
                 </ul><!-- /.breadcrumb -->
@@ -107,6 +107,8 @@
 
                 <div class="row">
                     <div class="col-xs-12">
+
+                        <p>Add Form</p>
                         <!-- PAGE CONTENT BEGINS -->
                         <div class="row">
                             <div class="col-xs-12">
