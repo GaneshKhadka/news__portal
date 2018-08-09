@@ -18,10 +18,20 @@ Route::get('/', function () {
 
 });
 
-Route::get('admin/dashboard', [ 'as'=> 'admin.dashboard','uses' => 'Admin\DashboardController@index']);
-Route::get('admin/test', [ 'as'=> 'admin.test','uses' => 'Admin\DashboardController@test']);
-Route::get('admin/user', [ 'as'=> 'admin.user','uses' => 'Admin\UserController@index']);
-Route::get('admin/user/add', [ 'as'=> 'admin.user.add','uses' => 'Admin\UserController@add']);
+Route::group([ 'prefix' => 'admin/', 'as' => 'admin.', 'middleware' => 'auth'],function(){
+
+    Route::get('dashboard',         [ 'as'=> 'dashboard', 'uses' => 'Admin\DashboardController@index']);
+    Route::get('test',              [ 'as'=> 'test',      'uses' => 'Admin\DashboardController@test']);
+    Route::get('user',              [ 'as'=> 'user',      'uses' => 'Admin\UserController@index']);
+    Route::get('user/add',          [ 'as'=> 'user.add',  'uses' => 'Admin\UserController@add']);
+    Route::get('user/store',        [ 'as'=> 'user.store',  'uses' => 'Admin\UserController@store']);
+    Route::get('user/edit/{id}',    [ 'as'=> 'user.edit',  'uses' => 'Admin\UserController@edit']);
+    Route::get('user/update/{id}',  [ 'as'=> 'user.update',  'uses' => 'Admin\UserController@update']);
+    Route::get('user/delete/{id}',  [ 'as'=> 'user.delete',  'uses' => 'Admin\UserController@delete']);
+
+});
+
+
 
 Auth::routes();
 

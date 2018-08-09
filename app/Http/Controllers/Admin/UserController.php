@@ -10,12 +10,17 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\Controller;
+use App\User;
 
 class UserController extends Controller
 {
     public function index()
     {
-        return view('admin.user.index');
+
+        $data = [];
+        $data['rows'] = User::select('id', 'created_at', 'email','username','contact_no','status')->get();
+
+        return view('admin.user.index',compact('data'));
       }
 
     public function add()

@@ -188,7 +188,7 @@
                             <ul class="dropdown-menu dropdown-navbar">
                                 <li>
                                     <a href="#" class="clearfix">
-                                        <img src="{{ asset('admin_panel/assets/images/avatars/avatar.png') }}}" class="msg-photo" alt="Alex's Avatar" />
+                                        <img src="{{ asset('admin_panel/assets/images/avatars/avatar.png') }}" class="msg-photo" alt="Alex's Avatar" />
                                         <span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Alex:</span>
@@ -311,10 +311,15 @@
                         <li class="divider"></li>
 
                         <li>
-                            <a href="#">
+                            <a href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="dropdown-item">
                                 <i class="ace-icon fa fa-power-off"></i>
                                 Logout
                             </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {!! @csrf_field() !!}
+                            </form>
+
                         </li>
                     </ul>
                 </li>
@@ -376,7 +381,7 @@
 <script type="text/javascript">
     if('ontouchstart' in document.documentElement) document.write("<script src='{{ asset('admin_panel/assets/js/jquery.mobile.custom.min.js') }}'>"+"<"+"/script>");
 </script>
-<script src="{{ asset('admin_panel/asset/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('admin_panel/assets/js/bootstrap.min.js') }}"></script>
 
 <!-- page specific plugin scripts -->
 
