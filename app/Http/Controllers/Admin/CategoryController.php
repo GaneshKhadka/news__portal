@@ -10,29 +10,30 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\User;
 
-class UserController extends Controller
+class CategoryController extends Controller
 {
     public function index()
     {
 
         $data = [];
-        $data['rows'] = User::select('id', 'created_at', 'email','username','contact_no','status')->get();
+        $data['rows'] = Category::select('id', 'created_at', 'title','status')->get();
 
-        return view('admin.user.index',compact('data'));
+
+        return view('admin.category.index',compact('data'));
       }
 
     public function add()
     {
-        return view('admin.user.add');
+        return view('admin.category.add');
     }
-
 
     public function store(AddFormValidation $request)
     {
         $request->request->add([
-            'status' => $request->get('status') == 'active'?1:0
+           'status' => $request->get('status') == 'active'?1:0
         ]);
 
         User::create($request->all());
@@ -41,8 +42,8 @@ class UserController extends Controller
     }
 
     public function edit(Request $request, $id){
-        $data = [];
-        $data['row'] = User::where('id', $id)->first();
+              $data = [];
+              $data['row'] = User::where('id', $id)->first();
     }
 
 }

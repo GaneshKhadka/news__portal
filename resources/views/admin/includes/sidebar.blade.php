@@ -78,7 +78,40 @@
             </ul>
         </li>
 
+        <li {!! request()->is('admin/category*')?'class="active open"':'' !!}>
+            <a href="#" class="dropdown-toggle">
+                <i class="menu-icon fa fa-desktop"></i>
+                <span class="menu-text">
+								Category Manager
+							</span>
 
+                <b class="arrow fa fa-angle-down"></b>
+            </a>
+
+            <b class="arrow"></b>
+
+            <ul class="submenu">
+
+                <li {!! request()->is('admin/category')?'class="active"':'' !!}>
+                    <a href="{{ route('admin.category') }}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        User Lists
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+
+                <li {!! request()->is('admin/category/add')?'class="active"':'' !!}>
+                    <a href="{{ route('admin.category.add') }}">
+                        <i class="menu-icon fa fa-caret-right"></i>
+                        Add User
+                    </a>
+
+                    <b class="arrow"></b>
+                </li>
+
+            </ul>
+        </li>
 
 
 

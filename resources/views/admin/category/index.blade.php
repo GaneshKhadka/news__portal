@@ -12,7 +12,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('admin.user') }}">User Manager</a>
+                        <a href="{{ route('admin.user') }}">Category Manager</a>
                     </li>
                     <li class="active">User Lists</li>
                 </ul><!-- /.breadcrumb -->
@@ -97,7 +97,7 @@
 
                 <div class="page-header">
                     <h1>
-                        User Manager
+                        Category Manager
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
                             User Lists
@@ -120,14 +120,13 @@
                                             </label>
                                         </th>
                                         <th class="detail-col">Details</th>
-                                        <th>Username</th>
-                                        <th>Created Date</th>
-                                        <th class="hidden-480">Email</th>
-
+                                        <th>Title</th>
                                         <th>
                                             <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-                                            Contact No
-                                        </th>
+                                        Created Date</th>
+
+
+
                                         <th class="hidden-480">Status</th>
 
                                         <th></th>
@@ -154,10 +153,9 @@
                                             </div>
                                         </td>
 
-                                        <td> {{ $row->username }}</td>
+                                        <td> {{ $row->title }}</td>
                                         <td>{{ $row->created_at }}</td>
-                                        <td class="hidden-480">{{ $row->email }}</td>
-                                        <td>{{ $row->contact_no }}</td>
+
 
                                         <td class="hidden-480">
                                             @if($row->status == 1)
@@ -179,7 +177,6 @@
                                                     <i class="ace-icon fa fa-trash-o bigger-120"></i>
                                                 </button>
 
-
                                             </div>
 
                                             <div class="hidden-md hidden-lg">
@@ -190,9 +187,8 @@
 
                                                     <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
 
-
                                                         <li>
-                                                            <a href="{{ route('admin.user.edit', ['id' => $row->id]) }}" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                            <a href="{{ route('admin.category.edit', ['id' => $row->id]) }}" class="tooltip-success" data-rel="tooltip" title="Edit">
 																			<span class="green">
 																				<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
 																			</span>
@@ -200,7 +196,7 @@
                                                         </li>
 
                                                         <li>
-                                                            <a href="{{ route('admin.user.delete', ['id' => $row->id]) }}" class="tooltip-error" data-rel="tooltip" title="Delete">
+                                                            <a href="{{ route('admin.category.delete', ['id' => $row->id]) }}" class="tooltip-error" data-rel="tooltip" title="Delete">
 																			<span class="red">
 																				<i class="ace-icon fa fa-trash-o bigger-120"></i>
 																			</span>

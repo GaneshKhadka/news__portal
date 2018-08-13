@@ -191,8 +191,6 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <!-- PAGE CONTENT BEGINS -->
-
-
                                     <form class="form-horizontal" role="form">
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label no-padding-right" for="form-field-1"> User name </label>
@@ -240,12 +238,16 @@
                                         </div>
                                         <div class="hr hr-24"></div>
                                         <div class="space-24"></div>
+
                                     </form>
 
                                     <!-- PAGE CONTENT ENDS -->
                                 </div><!-- /.col -->
                             </div><!-- /.row -->
                         </div>
+
+
+
                         <!-- PAGE CONTENT ENDS -->
                     </div><!-- /.col -->
                 </div><!-- /.row -->
