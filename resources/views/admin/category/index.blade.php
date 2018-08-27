@@ -5,6 +5,12 @@
     <div class="main-content">
         <div class="main-content-inner">
             <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+
+                <script type="text/javascript">
+                    try{ace.settings.check('breadcrumbs' , 'fixed')} catch (e) {}
+                </script>
+
+
                 <ul class="breadcrumb">
                     <li>
                         <i class="ace-icon fa fa-home home-icon"></i>
@@ -12,7 +18,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('admin.user') }}">Category Manager</a>
+                        <a href="{{ route($base_route) }}">Category</a>
                     </li>
                     <li class="active">User Lists</li>
                 </ul><!-- /.breadcrumb -->
@@ -121,6 +127,7 @@
                                         </th>
                                         <th class="detail-col">Details</th>
                                         <th>Title</th>
+                                        <th>Image</th>
                                         <th>
                                             <i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
                                         Created Date</th>
@@ -154,6 +161,14 @@
                                         </td>
 
                                         <td> {{ $row->title }}</td>
+                                           <td>
+                                               @if($row->image)
+                                                   <img src="{{ asset('images/category'.$row->image) }}" alt="" width="140">
+                                                   @else
+                                                   <p>No image</p>
+                                                   @endif
+
+                                           </td>
                                         <td>{{ $row->created_at }}</td>
 
 
@@ -188,7 +203,7 @@
                                                     <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
 
                                                         <li>
-                                                            <a href="{{ route('admin.category.edit', ['id' => $row->id]) }}" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                            <a href="{{ route($base_route.'.edit', ['id' => $row->id]) }}" class="tooltip-success" data-rel="tooltip" title="Edit">
 																			<span class="green">
 																				<i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
 																			</span>
@@ -196,7 +211,7 @@
                                                         </li>
 
                                                         <li>
-                                                            <a href="{{ route('admin.category.delete', ['id' => $row->id]) }}" class="tooltip-error" data-rel="tooltip" title="Delete">
+                                                            <a href="{{ route($base_route.'.delete', ['id' => $row->id]) }}" class="tooltip-error" data-rel="tooltip" title="Delete">
 																			<span class="red">
 																				<i class="ace-icon fa fa-trash-o bigger-120"></i>
 																			</span>

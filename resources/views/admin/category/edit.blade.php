@@ -14,7 +14,7 @@
                     <li>
                         <a href="{{ route($base_route) }}">Category</a>
                     </li>
-                    <li class="active">Add</li>
+                    <li class="active">Edit</li>
                 </ul><!-- /.breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -100,7 +100,7 @@
                         Category Manager
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            Add user form
+                            Edit Form
                         </small>
                     </h1>
                 </div><!-- /.page-header -->
@@ -182,30 +182,31 @@
                             <div class="row">
                                 <div class="col-xs-12">
                                     <!-- PAGE CONTENT BEGINS -->
-                                    {!! Form::open(['route' => $base_route.'.store', 'method' => 'post', 'class' =>'form-horizontal','id'=>'validation-form', 'enctype' => 'multipart/form-data']) !!}
+                                    {!! Form::model($data['row'], ['route' => [$base_route.'.update', $data['row']->id], 'class' =>'form-horizontal','enctype' => 'multipart/form-data', 'role' => 'form']) !!}
 
-                                        @include('admin.category.include.form')
+                                    {!! Form::hidden('id', $data['$row']->id) !!}
+                                    @include('admin.category.include.form')
 
-                                        <div class="clearfix form-actions">
-                                            <div class="col-md-offset-3 col-md-9">
-                                                <button class="btn btn-info" type="submit">
-                                                    <i class="ace-icon fa fa-check bigger-110"></i>
-                                                    Submit
-                                                </button>
+                                    <div class="clearfix form-actions">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <button class="btn btn-info" type="submit">
+                                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                                Update
+                                            </button>
 
-                                                &nbsp; &nbsp; &nbsp;
-                                                <button class="btn" type="reset">
-                                                    <i class="ace-icon fa fa-undo bigger-110"></i>
-                                                    Reset
-                                                </button>
-                                            </div>
+                                            &nbsp; &nbsp; &nbsp;
+                                            <button class="btn" type="reset">
+                                                <i class="ace-icon fa fa-undo bigger-110"></i>
+                                                Reset
+                                            </button>
                                         </div>
-                                        <div class="hr hr-24"></div>
-                                        <div class="space-24"></div>
+                                    </div>
+                                    <div class="hr hr-24"></div>
+                                    <div class="space-24"></div>
 
-                                    {!! Form::close() !!}
+                                {!! Form::close() !!}
 
-                                    <!-- PAGE CONTENT ENDS -->
+                                <!-- PAGE CONTENT ENDS -->
                                 </div><!-- /.col -->
                             </div><!-- /.row -->
                         </div>
@@ -250,4 +251,4 @@
         });
     </script>
 
-    @endsection
+@endsection

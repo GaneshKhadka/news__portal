@@ -5,6 +5,11 @@
     <div class="main-content">
         <div class="main-content-inner">
             <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+
+                <script type="text/javascript">
+                    try{ace.settings.check('breadcumbs' , 'fixed')} catch (e) {}
+                </script>
+
                 <ul class="breadcrumb">
                     <li>
                         <i class="ace-icon fa fa-home home-icon"></i>
@@ -12,7 +17,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ route('admin.user') }}">User Manager</a>
+                        <a href="{{ route('admin.user') }}">User</a>
                     </li>
                     <li class="active">User Lists</li>
                 </ul><!-- /.breadcrumb -->

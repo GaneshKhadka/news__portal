@@ -10,7 +10,9 @@ namespace App\Http\Controllers\Admin;
 
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\AddFormValidation;
 use App\User;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -31,18 +33,27 @@ class UserController extends Controller
 
     public function store(AddFormValidation $request)
     {
+
         $request->request->add([
             'status' => $request->get('status') == 'active'?1:0
         ]);
 
         User::create($request->all());
-        $request->session()->flash('success_message','User added successfully');
+        $request->session()->flash('success_message','User added successfully.');
         return redirect()->route('admin.user');
     }
 
     public function edit(Request $request, $id){
         $data = [];
         $data['row'] = User::where('id', $id)->first();
+
+        if(!$data['row']){
+            $request->session()->flash('error_message','Invalid request.');
+            return redirect()->route('admin.user');
+        }
+        $data['row']->status = $data['row']->status == 1?'active':'In-active';
+        return view('admin.user.edit',compact('data'));
+
     }
 
 }
