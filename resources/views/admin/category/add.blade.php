@@ -12,7 +12,7 @@
                     </li>
 
                     <li>
-                        <a href="{{ route($base_route) }}">Category</a>
+                        <a href="{{ route($base_route) }}">{{$panel}}</a>
                     </li>
                     <li class="active">Add</li>
                 </ul><!-- /.breadcrumb -->
@@ -97,7 +97,7 @@
 
                 <div class="page-header">
                     <h1>
-                        Category Manager
+                        {{ $panel }} Manager
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
                             Add user form

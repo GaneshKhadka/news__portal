@@ -18,9 +18,9 @@
                     </li>
 
                     <li>
-                        <a href="{{ route($base_route) }}">Category</a>
+                        <a href="{{ route($base_route) }}">{{$panel}}</a>
                     </li>
-                    <li class="active">User Lists</li>
+                    <li class="active">Lists</li>
                 </ul><!-- /.breadcrumb -->
 
                 <div class="nav-search" id="nav-search">
@@ -103,10 +103,10 @@
 
                 <div class="page-header">
                     <h1>
-                        Category Manager
+                        {{$panel}} Manager
                         <small>
                             <i class="ace-icon fa fa-angle-double-right"></i>
-                            User Lists
+                            Lists
                         </small>
                     </h1>
                 </div><!-- /.page-header -->
@@ -163,7 +163,7 @@
                                         <td> {{ $row->title }}</td>
                                            <td>
                                                @if($row->image)
-                                                   <img src="{{ asset('images/category'.$row->image) }}" alt="" width="140">
+                                                   <img src="{{ asset('images/.$folder.'.$row->image) }}" alt="" width="140">
                                                    @else
                                                    <p>No image</p>
                                                    @endif

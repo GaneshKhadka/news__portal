@@ -95,7 +95,7 @@
                 <li {!! request()->is('admin/category')?'class="active"':'' !!}>
                     <a href="{{ route('admin.category') }}">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        User Lists
+                        Lists
                     </a>
 
                     <b class="arrow"></b>
@@ -104,7 +104,7 @@
                 <li {!! request()->is('admin/category/add')?'class="active"':'' !!}>
                     <a href="{{ route('admin.category.add') }}">
                         <i class="menu-icon fa fa-caret-right"></i>
-                        Add User
+                        Add
                     </a>
 
                     <b class="arrow"></b>

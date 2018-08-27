@@ -27,7 +27,7 @@
 
         <div class="col-sm-9">
             @if($data['row']->image)
-                <img src="{{ asset('images/category'.$data['row']->image) }}" alt="" width="140">
+                <img src="{{ asset('images/.$folder.'.$data['row']->image) }}" alt="" width="140">
               @else
                 <p>No image</p>
             @endif
