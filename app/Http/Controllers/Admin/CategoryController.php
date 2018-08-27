@@ -45,8 +45,8 @@ class CategoryController extends AdminBaseController
     public function store(AddFormValidation $request)
     {
 
-          if($request->hasFile('main_image')){
-              $image = $request -> file('main_image');
+          if($request->hasFile('image')){
+              $image = $request -> file('image');
               $image_name = rand(1000, 5000).'_'.$image->getClientOriginalName();
               $image->move($this->folder_path, $image_name);
           }

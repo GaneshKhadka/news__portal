@@ -32,9 +32,9 @@ Route::group([ 'prefix' => 'admin/', 'as' => 'admin.', 'middleware' => 'auth'],f
 
     Route::get('category',              [ 'as'=> 'category',      'uses' => 'Admin\CategoryController@index']);
     Route::get('category/add',          [ 'as'=> 'category.add',  'uses' => 'Admin\CategoryController@add']);
-    Route::get('category/store',        [ 'as'=> 'category.store',  'uses' => 'Admin\CategoryController@store']);
+    Route::post('category/store',        [ 'as'=> 'category.store',  'uses' => 'Admin\CategoryController@store']);
     Route::get('category/edit/{id}',    [ 'as'=> 'category.edit',  'uses' => 'Admin\CategoryController@edit']);
-    Route::get('category/update/{id}',  [ 'as'=> 'category.update',  'uses' => 'Admin\CategoryController@update']);
+    Route::post('category/update/{id}',  [ 'as'=> 'category.update',  'uses' => 'Admin\CategoryController@update']);
     Route::get('category/delete/{id}',  [ 'as'=> 'category.delete',  'uses' => 'Admin\CategoryController@delete']);
 
 });
