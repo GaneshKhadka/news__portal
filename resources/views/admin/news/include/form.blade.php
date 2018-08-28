@@ -107,7 +107,7 @@
         {!! Form::textarea('detail_des', null, [
         'id' => 'detail_des',
         'placeholder' => 'Enter a description here!',
-        'class' => 'col-xs-10 col-sm-5'
+        'class' => 'col-xs-10 col-sm-5 textarea'
           ]) !!}
 
         @if($errors->has('detail_des'))
