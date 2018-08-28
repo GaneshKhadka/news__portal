@@ -11,15 +11,15 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Category\AddFormValidation;
 use App\Http\Requests\Category\EditFormValidation;
-use App\Models\Category;
+use App\Models\News;
 use Illuminate\Http\Request;
 
-class CategoryController extends AdminBaseController
+class NewsController extends AdminBaseController
 {
-    protected $base_route = 'admin.category';
-    protected $view_path = 'admin.category';
-    protected $folder_name = 'category';
-    protected $panel = 'Category';
+    protected $base_route = 'admin.news';
+    protected $view_path = 'admin.news';
+    protected $folder_name = 'news';
+    protected $panel = 'News';
     protected $folder_path;
 
     public function __construct()
@@ -31,7 +31,7 @@ class CategoryController extends AdminBaseController
     {
 
         $data = [];
-        $data['rows'] = Category::select('id', 'created_at', 'title','image','status')->get();
+        $data['rows'] = News::select('id', 'created_at', 'title','image','status')->get();
 
 
         return view(parent::loadDataToView($this->view_path.'.index'),compact('data'));
@@ -42,8 +42,10 @@ class CategoryController extends AdminBaseController
         return view(parent::loadDataToView($this->view_path.'.add'));
     }
 
-    public function store(AddFormValidation $request)
+    public function store(Request $request)
     {
+
+
           if($request->hasFile('main_image')){
               $image = $request -> file('main_image');
               $image_name = rand(1000, 5000).'_'.$image->getClientOriginalName();
@@ -53,31 +55,33 @@ class CategoryController extends AdminBaseController
         $request->request->add([
             'slug' => str_slug($request->get('title')),
             'status' => $request->get('status') == 'active'?1:0,
-            'image' => $image_name
+            'image' => isset($image_name)?$image_name:null
         ]);
 
-        Category::create($request->all());
-        $request->session()->flash('success_message','Category added successfully');
+        News::create($request->all());
+        $request->session()->flash('success_message',$this->panel.' added successfully');
         return redirect()->route($this->base_route);
     }
 
     public function edit(Request $request, $id){
               $data = [];
-              $data['row'] = Category::where('id', $id)->first();
+              $data['row'] = News::where('id', $id)->first();
 
         if(!$data['row']){
             $request->session()->flash('error_message','Invalid request.');
             return redirect()->route($this->base_route);
         }
+
+        $data['row']->publish_date = date('Y/m/d',strtotime($data['row']->publish_date) );
         $data['row']->status = $data['row']->status == 1?'active':'in-active';
         return view(parent::loadDataToView($this->view_path.'.edit'),compact('data'));
 
     }
 
-    public function update(EditFormValidation $request, $id)
+    public function update(Request $request, $id)
     {
         $data=[];
-        $data['row'] = Category::where('id',$id)->first();
+        $data['row'] = News::where('id',$id)->first();
 
         if($request->hasFile('main_image')){
 
@@ -95,14 +99,14 @@ class CategoryController extends AdminBaseController
                 'image' => isset($image_name)?$image_name:$data['row']->image
             ]);
         $data['row']->update($request->all());
-        $request->session()->flash('success_message','Category added successfully');
+        $request->session()->flash('success_message',$this->panel.' added successfully');
         return redirect()->route($this->base_route);
     }
 
     public function delete(Request $request, $id)
     {
         $data = [];
-        $data['row'] = Category::where('id', $id)->first();
+        $data['row'] = News::where('id', $id)->first();
 
         if(!data['row']){
             $request->session()->flash('error_message','Invalid request.');
@@ -114,7 +118,7 @@ class CategoryController extends AdminBaseController
             unlink($this->folder_path.DIRECTORY_SEPARATOR.$data['row']->image);
 
         $data['row']->delete();
-        $request->session()->flash('success_message','Category deleted successfully');
+        $request->session()->flash('success_message',$this->panel.' deleted successfully');
         return redirect()->route($this->base_route);
     }
 

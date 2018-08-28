@@ -36,18 +36,18 @@
 
     @endif
 <div class="form-group">
-    {!! Form::label('image', 'Image', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
+    {!! Form::label('main_image', 'Image', ['class' => 'col-sm-3 control-label no-padding-right']) !!}
 
     <div class="col-sm-9">
 
-        {!! Form::file('image', [
+        {!! Form::file('main_image', [
         'id' => 'image',
         'class' => 'col-xs-10 col-sm-5'
         ]) !!}
 
-        @if($errors->has('image'))
+        @if($errors->has('main_image'))
             <span class="help-block error">
-            <strong>{{ $errors->first('image') }}</strong>
+            <strong>{{ $errors->first('main_image') }}</strong>
             </span>
         @endif
     </div>

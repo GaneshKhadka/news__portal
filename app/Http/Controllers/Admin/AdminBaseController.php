@@ -17,6 +17,7 @@ class AdminBaseController extends Controller
     {
         View::composer($view_path, function($view){
            $view->with('base_route',$this->base_route);
+            $view->with('view_path',$this->view_path);
            $view->with('panel',$this->panel);
             $view->with('folder',property_exists($this,'folder_name')?$this->folder_name:'');
         });

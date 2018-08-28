@@ -18,15 +18,15 @@ Route::get('/', function () {
 
 });
 
-Route::group([ 'prefix' => 'admin/', 'as' => 'admin.', 'middleware' => 'auth'],function(){
+Route::group([ 'prefix' => 'admin/', 'as' => 'admin.', 'middleware' => ['auth','auth-custom']],function(){
 
     Route::get('dashboard',         [ 'as'=> 'dashboard', 'uses' => 'Admin\DashboardController@index']);
     Route::get('test',              [ 'as'=> 'test',      'uses' => 'Admin\DashboardController@test']);
     Route::get('user',              [ 'as'=> 'user',      'uses' => 'Admin\UserController@index']);
     Route::get('user/add',          [ 'as'=> 'user.add',  'uses' => 'Admin\UserController@add']);
-    Route::get('user/store',        [ 'as'=> 'user.store',  'uses' => 'Admin\UserController@store']);
+    Route::post('user/store',        [ 'as'=> 'user.store',  'uses' => 'Admin\UserController@store']);
     Route::get('user/edit/{id}',    [ 'as'=> 'user.edit',  'uses' => 'Admin\UserController@edit']);
-    Route::get('user/update/{id}',  [ 'as'=> 'user.update',  'uses' => 'Admin\UserController@update']);
+    Route::post('user/update/{id}',  [ 'as'=> 'user.update',  'uses' => 'Admin\UserController@update']);
     Route::get('user/delete/{id}',  [ 'as'=> 'user.delete',  'uses' => 'Admin\UserController@delete']);
 
 
@@ -36,6 +36,14 @@ Route::group([ 'prefix' => 'admin/', 'as' => 'admin.', 'middleware' => 'auth'],f
     Route::get('category/edit/{id}',    [ 'as'=> 'category.edit',  'uses' => 'Admin\CategoryController@edit']);
     Route::post('category/update/{id}',  [ 'as'=> 'category.update',  'uses' => 'Admin\CategoryController@update']);
     Route::get('category/delete/{id}',  [ 'as'=> 'category.delete',  'uses' => 'Admin\CategoryController@delete']);
+
+
+    Route::get('news',              [ 'as'=> 'news',      'uses' => 'Admin\NewsController@index']);
+    Route::get('news/add',          [ 'as'=> 'news.add',  'uses' => 'Admin\NewsController@add']);
+    Route::post('news/store',        [ 'as'=> 'news.store',  'uses' => 'Admin\NewsController@store']);
+    Route::get('news/edit/{id}',    [ 'as'=> 'news.edit',  'uses' => 'Admin\NewsController@edit']);
+    Route::post('news/update/{id}',  [ 'as'=> 'news.update',  'uses' => 'Admin\NewsController@update']);
+    Route::get('news/delete/{id}',  [ 'as'=> 'news.delete',  'uses' => 'Admin\NewsController@delete']);
 
 });
 

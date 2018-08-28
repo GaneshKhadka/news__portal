@@ -25,7 +25,7 @@ class AddFormValidation extends FormRequest
     {
         return [
             'title' => 'required | unique:categories,title',
-            'image' => 'required | mimes:jpeg,bmp,png ',
+            'main_image' => 'required | mimes:jpeg,bmp,png ',
         ];
     }
 }

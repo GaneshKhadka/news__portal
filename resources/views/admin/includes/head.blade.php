@@ -40,3 +40,5 @@
     <script src="{{ asset('admin_panel/assets/js/respond.min.js') }}"></script>
     <![endif]-->
 </head>
+
+@yield('css')
