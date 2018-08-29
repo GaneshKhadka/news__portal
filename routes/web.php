@@ -12,12 +12,6 @@
 */
 
 
-
-Route::get('/', function () {
-    return view('welcome');
-
-});
-
 Route::group([ 'prefix' => 'admin/', 'as' => 'admin.', 'middleware' => ['auth','auth-custom']],function(){
 
     Route::get('dashboard',         [ 'as'=> 'dashboard', 'uses' => 'Admin\DashboardController@index']);
@@ -52,3 +46,4 @@ Route::group([ 'prefix' => 'admin/', 'as' => 'admin.', 'middleware' => ['auth','
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/',              [ 'as'=> 'home',      'uses' => 'Front\HomeController@index']);

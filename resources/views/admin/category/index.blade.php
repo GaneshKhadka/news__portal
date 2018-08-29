@@ -209,7 +209,7 @@
 
                                         </td>
 
-                                        <td>
+                                        {{--<td>
                                             <div class="hidden-sm hidden-xs btn-group">
 
                                                 <button class="btn btn-xs btn-info">
@@ -248,7 +248,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                        </td>
+                                        </td>--}}
                                     </tr>
 
                                          <tr class="detail-row">

@@ -173,7 +173,7 @@
 
                                         </td>
 
-                                        <td>
+                                       {{-- <td>
                                             <div class="hidden-sm hidden-xs btn-group">
 
                                                 <button class="btn btn-xs btn-info">
@@ -205,16 +205,16 @@
                                                         </li>
 
                                                         <li>
-                                                            <a href="{{ route('admin.user.delete', ['id' => $row->id]) }}" class="tooltip-error" data-rel="tooltip" title="Delete">
+                                                            <a href="{{ route('admin.user.delete', ['id' => $row->id]) }}" class="tooltip-error " data-rel="tooltip" title="Delete">
 																			<span class="red">
-																				<i class="ace-icon fa fa-trash-o bigger-120"></i>
+																				<i class="ace-icon fa fa-trash-o bigger-120 bootbox-confirm"></i>
 																			</span>
                                                             </a>
                                                         </li>
                                                     </ul>
                                                 </div>
                                             </div>
-                                        </td>
+                                        </td>--}}
                                     </tr>
 
                                          <tr class="detail-row">
@@ -339,5 +339,26 @@
             </div><!-- /.page-content -->
         </div>
     </div><!-- /.main-content -->
+
+@endsection
+
+@section('js')
+    <script src="{{ asset('assets/admin_panel/assets/js/bootbox.js') }}"></script>
+
+    $(document).ready(function(){
+
+
+    <script>
+        $(".bootbox-confirm").on('click', function() {
+            bootbox.confirm("Are you sure?", function(result) {
+                if(result) {
+                    //
+                }
+            });
+        });
+
+    </script>
+
+    });
 
 @endsection
