@@ -47,3 +47,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/',              [ 'as'=> 'home',      'uses' => 'Front\HomeController@index']);
+Route::get('news/{slug}',              [ 'as'=> 'news.detail',      'uses' => 'Front\NewsController@detail']);

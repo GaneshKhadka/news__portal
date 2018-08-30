@@ -1,10 +1,3 @@
-
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
 <html>
 @include('front.includes.head')
@@ -26,12 +19,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <div class="mid-btm">
                 <p>Consectetur adipisicing</p>
                 <p>Sed do eiusmod tempor</p>
-                <a href="https://w3layouts.com/">https://w3layouts.com/</a>
+                <a href="http://eagle-i-tech.com/">http://eagle-i-tech.com/</a>
             </div>
 
             <p>Consectetur adipisicing</p>
             <p>Sed do eiusmod tempor</p>
-            <a href="https://w3layouts.com/">https://w3layouts.com/</a>
+            <a href="http://eagle-i-tech.com/">http://eagle-i-tech.com/</a>
 
         </div>
         <div class="col-md-4 footer-right">
@@ -69,7 +62,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!-- footer-bottom -->
 <div class="copyright">
     <div class="container">
-        <p>© 2016 Business_Blog. All rights reserved | Template by <a href="http://w3layouts.com/">W3layouts</a></p>
+        <p>© 2018 Eagle Eye Technology. All rights reserved | <a href="http://eagle-i-tech.com/">Eagle Eye Technolgy</a></p>
     </div>
 </div>
 

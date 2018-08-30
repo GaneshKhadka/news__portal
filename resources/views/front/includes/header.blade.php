@@ -2,7 +2,7 @@
     <div class="header-top">
         <div class="container">
             <div class="logo">
-                <a href="index.html"><h1>BUSINESS BLOG</h1></a>
+                <a href="index.html"><h1>News Blog</h1></a>
             </div>
             <div class="search">
                 <form>
